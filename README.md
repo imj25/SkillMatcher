@@ -2,6 +2,20 @@
 
 A full-stack web application that connects job seekers with companies through an intelligent job matching system, featuring AI-powered CV feedback and automated candidate ranking.
 
+## 📸 Screenshots
+
+### Home Page
+![Home Page](screenshots/home-page.png)
+
+### Job Listings
+![Job Listings](screenshots/job-listings.png)
+
+### Applicants Ranking
+![Applicants Ranking](screenshots/applicants-ranking.png)
+
+### CV Feedback
+![CV Feedback](screenshots/cv-feedback.png)
+
 ## 🎯 Project Overview
 
 This platform serves as a bridge between job seekers and employers, providing:
@@ -54,3 +68,4 @@ This platform serves as a bridge between job seekers and employers, providing:
 
 **Company Flow:**
 - Register → Post Job → Receive Applications → View Rankings → Manage Status
+
