@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile - SKILLMATCHER{% endblock %}
+
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="profile-card">
+                <h2>Welcome, {{ username }}!</h2>
+                <!-- User Type Badge -->
+                {% if request.user.user_type == 'job_seeker' %}
+                    <div class="user-type-badge job-seeker-badge">
+                        <span class="badge-icon">👤</span>
+                        <span class="badge-text">Job Seeker</span>
+                    </div>
+                {% elif request.user.user_type == 'company' %}
+                    <div class="user-type-badge company-badge">
+                        <span class="badge-icon">🏢</span>
+                        <span class="badge-text">Company</span>
+                    </div>
+                {% endif %}
+                <!-- Additional User Information -->
+                <div class="mt-4">
+                    <p><strong>Email:</strong> {{ request.user.email }}</p>
+                    {% if request.user.user_type == 'job_seeker' and request.user.job_title %}
+                        <p><strong>Job Title:</strong> {{ request.user.job_title }}</p>
+                    {% elif request.user.user_type == 'company' and request.user.company_name %}
+                        <p><strong>Company Name:</strong> {{ request.user.company_name }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom CSS for Badges -->
+<style>
+    .user-type-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .user-type-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .badge-icon {
+        margin-right: 0.75rem;
+        font-size: 1.5rem;
+    }
+
+    .badge-text {
+        letter-spacing: 0.05rem;
+    }
+
+    .job-seeker-badge {
+        background: linear-gradient(135deg, #28a745, #218838);
+        color: white;
+    }
+
+    .company-badge {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        color: white;
+    }
+</style>
+{% endblock %}

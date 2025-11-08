@@ -1,0 +1,88 @@
+# --- OS/Editor ---
+Thumbs.db
+.DS_Store
+*.swp
+*.swo
+*.orig
+.vscode/
+.idea/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+*.log
+
+# --- Django ---
+*.sqlite3
+db.sqlite3
+/staticfiles/
+/media/
+
+# Keep CVs while ignoring other media uploads
+!media/
+media/*
+!media/cvs/
+!media/cvs/**
+
+# Uploaded CVs retained
+!uploaded_cvs/
+!uploaded_cvs/**
+
+# --- Environments ---
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+ENV/
+matcher-env/
+
+# --- Node/Frontend ---
+frontend/node_modules/
+node_modules/
+frontend/.env
+frontend/.env.*
+frontend/build/
+frontend/dist/
+
+# --- Misc Archives & Build Artifacts ---
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+coverage/
+.dist/
+
+# --- Python Virtual Environments ---
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# --- Django ---
+*.log
+local_settings.py
+/staticfiles/
+/collected_static/
+
+# --- IDE ---
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# --- Testing ---
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+
+
+

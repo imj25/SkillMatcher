@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}CV Feedback App{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <!-- Card for the form -->
+            <div class="card shadow-lg border-0">
+                <div class="card-header text-center bg-primary text-white">
+                    <h2>Upload Your CV for Feedback</h2>
+                </div>
+                <div class="card-body">
+                    <!-- Form -->
+                    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <!-- Job Description Field -->
+                        <div class="mb-3">
+                            <label for="job_description" class="form-label">Job Description:</label>
+                            <textarea name="job_description" id="job_description" rows="4" 
+                                      class="form-control" placeholder="Enter job description" required></textarea>
+                            <div class="invalid-feedback">
+                                Please provide the job description.
+                            </div>
+                        </div>
+
+                        <!-- CV File Upload -->
+                        <div class="mb-3">
+                            <label for="cv_file" class="form-label">Upload Your CV (PDF):</label>
+                            <input type="file" name="cv_file" id="cv_file" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Please select a valid PDF file.
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Feedback Section (Moved next to the form) -->
+        {% if feedback %}
+        <div class="col-lg-4 col-md-8 mt-md-0 mt-4">
+            <div class="alert alert-info">
+                <h4>Feedback</h4>
+                <p>{{ feedback }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Form Validation Script -->
+<script>
+    (function () {
+        'use strict';
+        var forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg p-4 text-center" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4">Login</h2>
+
+        {% if messages %}
+            <div class="alert alert-danger text-center" role="alert">
+                {% for message in messages %}
+                    <p class="mb-0">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3 d-flex flex-column align-items-center">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+            <div class="mb-3 d-flex flex-column align-items-center">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <small>
+                <a href="{% url 'register' user_type='job_seeker' %}" class="text-decoration-none">Register as Job Seeker</a> |
+                <a href="{% url 'register' user_type='company' %}" class="text-decoration-none">Register as Company</a>
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock %}

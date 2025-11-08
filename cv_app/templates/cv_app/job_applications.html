@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <h2>Applications for {{ job.title }}</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Applicant</th>
+                <th>Applied At</th>
+                <th>CV</th>
+                <th>Status</th>
+                <th>Email</th>  <!-- New column for the Email button -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for application in applications %}
+                <tr>
+                    <td>{{ application.applicant.username }}</td>
+                    <td>{{ application.applied_at }}</td>
+                    <td>
+                        {% if application.cv_file %}
+                            <a href="{{ application.cv_file.url }}" class="btn btn-primary" target="_blank">View CV</a>
+                        {% else %}
+                            No CV uploaded
+                        {% endif %}
+                    </td>
+                    <td>{{ application.status }}</td>
+                    <td>
+                        <!-- Email button for each applicant -->
+                        <a href="mailto:{{ application.applicant.email }}?subject=Regarding Your Application for {{ job.title }}&body=Dear {{ application.applicant.username }},%0D%0A%0D%0AWe are writing to you regarding your application for the position of {{ job.title }}.%0D%0A%0D%0ABest regards,%0D%0A{{ request.user.company_name }}" class="btn btn-success">
+                            Email
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
