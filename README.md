@@ -1,62 +1,56 @@
-## CV Project
+# SkillMatcher - Job Matching Platform
 
-Full‑stack CV processing app with a Django backend and a React frontend.
+A full-stack web application that connects job seekers with companies through an intelligent job matching system, featuring AI-powered CV feedback and automated candidate ranking.
 
-### Tech stack
-- **Backend**: Django
-- **Frontend**: React (Create React App)
+## 🎯 Project Overview
 
-### Repository layout
-- `manage.py`, `cv_app/`, `feedback/`, `templates/`: Django backend
-- `frontend/`: React app
-- `media/cvs/`: Sample CVs (kept in repo as requested)
-- `uploaded_cvs/`: Organized uploaded CVs (kept in repo as requested)
-- `scripts/`: Utility scripts (local helpers)
+This platform serves as a bridge between job seekers and employers, providing:
+- A seamless job application process with CV uploads
+- AI-powered feedback to help job seekers improve their resumes
+- Intelligent candidate matching to help companies find the best applicants
+- A modern, responsive user interface for both user types
 
-### Quick start
+## 🚀 Key Features
 
-Backend (Django):
-1. Create and activate a virtual environment
-   - Windows (PowerShell):
-     ```bash
-     python -m venv .venv
-     .venv\\Scripts\\Activate.ps1
-     ```
-2. Install dependencies
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run migrations and start server
-   ```bash
-   python manage.py migrate
-   python manage.py runserver
-   ```
+### For Job Seekers
+- **Browse Job Listings**: Explore available positions posted by companies
+- **Apply with CV**: Upload your CV directly when applying for jobs
+- **AI CV Feedback**: Get personalized, constructive feedback on your resume using OpenAI GPT-4
+- **Track Applications**: Monitor the status of your job applications
+- **User Profile**: Manage your profile and application history
 
-Frontend (React):
-```bash
-cd frontend
-npm install
-npm start -- --port 3000
-```
+### For Companies
+- **Post Jobs**: Create and manage job postings with detailed descriptions
+- **Review Applications**: View all applications for your posted positions
+- **Smart Candidate Ranking**: Automatically rank applicants based on job requirements and CV content
+- **Application Management**: Accept or reject applications with status tracking
 
-### Environment variables
-1. Copy `.env.example` to `.env` in the project root:
-   ```bash
-   cp .env.example .env
-   ```
-2. Edit `.env` and set your values:
-   - `SECRET_KEY`: Django secret key (generate a new one for production)
-   - `DEBUG`: Set to `False` in production
-   - `OPENAI_API_KEY`: Your OpenAI API key
-   - `CORS_ALLOWED_ORIGINS`: Comma-separated list of allowed origins (default: `http://localhost:3000`)
+### Technical Features
+- **Dual Authentication System**: Separate registration and login for job seekers and companies
+- **JWT Token Authentication**: Secure API access with JSON Web Tokens
+- **RESTful API**: Complete backend API for frontend integration
+- **PDF Processing**: Automated text extraction and parsing from CV PDFs
+- **AI Integration**: OpenAI GPT-4 integration for intelligent CV analysis
+- **Responsive Design**: Modern React frontend with Tailwind CSS
 
-For the frontend, create `frontend/.env` if needed:
-- `REACT_APP_API_BASE=http://localhost:8000`
+## 🛠️ Tech Stack
 
-### Notes
-- Local databases, virtual environments, Node modules, build outputs, and archives are ignored via `.gitignore`.
-- Only `media/cvs/` and `uploaded_cvs/` are tracked; other `media` subfolders are ignored.
+### Backend
+- Django 5.1.5
+- Django REST Framework
+- JWT Authentication
+- PyMuPDF & PyPDF2
+- OpenAI API
 
+### Frontend
+- React 19.1.0
+- React Router DOM
+- Tailwind CSS
 
+## 🔄 Workflow
 
+**Job Seeker Flow:**
+- Register → Browse Jobs → Apply with CV → Get Feedback → Track Status
 
+**Company Flow:**
+- Register → Post Job → Receive Applications → View Rankings → Manage Status
